@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/packer-plugin-sdk/plugin"
 	"github.com/hashicorp/packer-plugin-sdk/version"
 
-	"github.com/joan-wtf/packer-builder-arm/builder"
+	"github.com/joan-wtf/packer-plugin-arm/builder"
 )
 
 var (
