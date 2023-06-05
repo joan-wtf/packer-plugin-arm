@@ -43,7 +43,7 @@
         "pacman-key --populate archlinuxarm",
         "rm -f /etc/resolv.conf",
         "echo 'nameserver 8.8.8.8' > /etc/resolv.conf",
-        "echo '\n[mkaczanowski]\nServer = https://raw.githubusercontent.com/mkaczanowski/pkgbuilds/master/pkg/$arch\nSigLevel = PackageOptional' >> /etc/pacman.conf",
+        "echo '\n[joan-wtf]\nServer = https://raw.githubusercontent.com/joan-wtf/pkgbuilds/master/pkg/$arch\nSigLevel = PackageOptional' >> /etc/pacman.conf",
         "pacman -R linux-armv7 --noconfirm",
         "pacman -Sy linux-parallella --noconfirm",
         "pacman -S parallella-fpga-bitstream-headless-7010 --noconfirm",

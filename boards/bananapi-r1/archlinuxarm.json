@@ -2,8 +2,8 @@
   "variables": {},
   "builders": [{
     "type": "arm",
-    "file_urls" : ["http://mkaczanowski.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img.gz"],
-    "file_checksum_url": "http://mkaczanowski.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img.gz.md5",
+    "file_urls" : ["http://joan-wtf.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img.gz"],
+    "file_checksum_url": "http://joan-wtf.com/files/archlinux-bpi-r1-2017-28-2017-4.6.5-sunxi-mainline.img.gz.md5",
     "file_checksum_type": "md5",
     "file_unarchive_cmd": ["gunzip", "$ARCHIVE_PATH"],
     "file_target_extension": "gz",

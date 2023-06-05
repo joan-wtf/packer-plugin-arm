@@ -7,16 +7,16 @@
 [![Docker Image Size][docker-size]][docker-hub]
 [![Docker Image Version][docker-version]][docker-hub]
 
-[github-badge]:https://img.shields.io/github/actions/workflow/status/mkaczanowski/packer-builder-arm/docker.yml?branch=master
-[github]: https://github.com/mkaczanowski/packer-builder-arm/actions
-[godoc-badge]: https://godoc.org/github.com/mkaczanowski/packer-builder-arm?status.svg
-[godoc]: https://godoc.org/github.com/mkaczanowski/packer-builder-arm
-[report-badge]: https://goreportcard.com/badge/github.com/mkaczanowski/packer-builder-arm
-[report]: https://goreportcard.com/report/github.com/mkaczanowski/packer-builder-arm
-[docker-hub]: https://hub.docker.com/r/mkaczanowski/packer-builder-arm
-[docker-pulls]: https://img.shields.io/docker/pulls/mkaczanowski/packer-builder-arm
-[docker-size]: https://img.shields.io/docker/image-size/mkaczanowski/packer-builder-arm
-[docker-version]: https://img.shields.io/docker/v/mkaczanowski/packer-builder-arm?sort=semver
+[github-badge]:https://img.shields.io/github/actions/workflow/status/joan-wtf/packer-plugin-arm/docker.yml?branch=master
+[github]: https://github.com/joan-wtf/packer-plugin-arm/actions
+[godoc-badge]: https://godoc.org/github.com/joan-wtf/packer-plugin-arm?status.svg
+[godoc]: https://godoc.org/github.com/joan-wtf/packer-plugin-arm
+[report-badge]: https://goreportcard.com/badge/github.com/joan-wtf/packer-plugin-arm
+[report]: https://goreportcard.com/report/github.com/joan-wtf/packer-plugin-arm
+[docker-hub]: https://hub.docker.com/r/joan-wtf/packer-plugin-arm
+[docker-pulls]: https://img.shields.io/docker/pulls/joan-wtf/packer-plugin-arm
+[docker-size]: https://img.shields.io/docker/image-size/joan-wtf/packer-plugin-arm
+[docker-version]: https://img.shields.io/docker/v/joan-wtf/packer-plugin-arm?sort=semver
 
 
 This plugin allows you to build or extend ARM system image. It operates in two modes:
@@ -51,7 +51,7 @@ Since the setup varies a lot for different hardware types, the example configura
 
 # Quick start
 ```
-git clone https://github.com/mkaczanowski/packer-builder-arm
+git clone https://github.com/joan-wtf/packer-plugin-arm
 cd packer-builder-arm
 go mod download
 go build
@@ -70,16 +70,16 @@ format error` (**linux** packer process within docker fails to load the outside 
 
 Pull the latest version of the container to ensure the next commands are not using an old cached version of the container :
 ```
-docker pull mkaczanowski/packer-builder-arm:latest
+docker pull joan-wtf/packer-plugin-arm:latest
 ```
 
 Build a board:
 ```
-docker run --rm --privileged -v /dev:/dev -v ${PWD}:/build mkaczanowski/packer-builder-arm:latest build boards/raspberry-pi/raspbian.json
+docker run --rm --privileged -v /dev:/dev -v ${PWD}:/build joan-wtf/packer-plugin-arm:latest build boards/raspberry-pi/raspbian.json
 ```
 Build a board with more system packages (e.g. bmap-tools, zstd) can be added via the parameter `-extra-system-packages=...`:
 ```
-docker run --rm --privileged -v /dev:/dev -v ${PWD}:/build mkaczanowski/packer-builder-arm:latest build boards/raspberry-pi/raspbian.json -extra-system-packages=bmap-tools,zstd
+docker run --rm --privileged -v /dev:/dev -v ${PWD}:/build joan-wtf/packer-plugin-arm:latest build boards/raspberry-pi/raspbian.json -extra-system-packages=bmap-tools,zstd
 ```
 
 > **_NOTE:_** In above commands **latest** can also be replaced via e.g. **1.0.3** to get a specific container version.
@@ -174,7 +174,7 @@ To execute command within chroot environment you should use chroot communicator:
 This plugin doesn't resize partitions on the base image. However, you can easily expand partition size at the boot time with a systemd service. [Here](./boards/raspberry-pi/archlinuxarm.json) you can find real-life example, where a raspberry pi root-fs partition expands to all available space on sdcard.
 
 # Flashing
-To dump image on device you can use [custom postprocessor](https://github.com/mkaczanowski/packer-post-processor-flasher) (really wrapper around `dd` with some sanity checks):
+To dump image on device you can use [custom postprocessor](https://github.com/joan-wtf/packer-post-processor-flasher) (really wrapper around `dd` with some sanity checks):
 ```
 "post-processors": [
  {
@@ -236,7 +236,7 @@ With `artifice` plugin you can pass rootfs archive to docker plugins
     },
     {
         "type": "docker-import",
-        "repository": "mkaczanowski/archlinuxarm",
+        "repository": "joan-wtf/archlinuxarm",
         "tag": "latest"
     }],
     ...
